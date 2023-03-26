@@ -19,4 +19,22 @@
             </list>
         </property>
     </bean>
+
+    <bean id="labonfir.LabOnFhirService"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager" />
+        </property>
+        <property name="target">
+            <bean class="org.openmrs.module.labonfhir.api.impl.LabOnFhirServiceImpl">
+                <property name="dao" ref="labonfhir.LabOnFhirDao" />
+            </bean>
+        </property>
+        <property name="preInterceptors">
+            <ref bean="serviceInterceptors" />
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="transactionAttributeSource" />
+        </property>
+    </bean>
 </beans>

@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.openmrs.module</groupId>
         <artifactId>labonfhir</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
     </parent>
 
     <artifactId>labonfhir-api</artifactId>
@@ -35,6 +35,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
         </dependency>
     </dependencies>
 </project>

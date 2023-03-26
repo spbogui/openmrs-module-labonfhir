@@ -36,6 +36,41 @@
             <column name="uuid" value="8c17b376-1a2v-11e1-a51a-00248140a5eb" />
         </insert>
     </changeSet>
+
+    <changeSet id="lof-viral-load-request-encounter-type" author="BOGUI SERGE">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE uuid = 'DEMANDEEXAMENEEEEEEEEEEEEEEEEEEEEEEEEE'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO encounter_type (name, description, creator, date_created, retired, uuid)
+            VALUE ('Demande d''examen biologique', NULL, 1, '2022-12-10', 0,     'DEMANDEEXAMENEEEEEEEEEEEEEEEEEEEEEEEEE');
+        </sql>
+    </changeSet>
+
+    <changeSet id="lof-add-encounter-role-clinician" author="BOGUI SERGE">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_role WHERE uuid = 'CLINICIANRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO encounter_role (name, description, creator, date_created, retired, uuid)
+            VALUES ('Clinicien', 'Role a assigner pour les cliniciens', 1, '2022-12-14', 0, 'CLINICIANRRRRRRRRRRRRRRRRRRRRRRRRRRRRR')
+        </sql>
+    </changeSet>
+    <changeSet id="lof-add-encounter-role-clinician" author="BOGUI SERGE">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_role WHERE uuid = 'COLLECTORRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO encounter_role (name, description, creator, date_created, retired, uuid)
+            VALUES ('Préléveur', 'Role a assigner pour les préléveurs', 1, '2022-12-14', 0, 'COLLECTORRRRRRRRRRRRRRRRRRRRRRRRRRRRRR')
+        </sql>
+    </changeSet>
 </databaseChangeLog>
 
 
